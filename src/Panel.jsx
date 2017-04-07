@@ -17,6 +17,11 @@ const CollapsePanel = React.createClass({
       PropTypes.number,
       PropTypes.node,
     ]),
+    subHeader: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.node,
+    ]),
     showArrow: PropTypes.bool,
     isActive: PropTypes.bool,
     onItemClick: PropTypes.func,
@@ -37,7 +42,7 @@ const CollapsePanel = React.createClass({
   },
 
   render() {
-    const { className, style, prefixCls, header, children, isActive, showArrow } = this.props;
+    const { className, style, prefixCls, header, children, isActive, showArrow, subHeader } = this.props;
     const headerCls = `${prefixCls}-header`;
     const itemCls = classNames({
       [`${prefixCls}-item`]: true,
@@ -53,6 +58,7 @@ const CollapsePanel = React.createClass({
         >
           {showArrow && <i className="arrow" />}
           {header}
+          {subHeader}
         </div>
         <Animate
           showProp="isActive"

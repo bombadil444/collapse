@@ -98,6 +98,7 @@ const Collapse = React.createClass({
       // If there is no key provide, use the panel order as default key
       const key = child.key || String(index);
       const header = child.props.header;
+      const subHeader = child.props.subHeader;
       let isActive = false;
       if (accordion) {
         isActive = activeKey[0] === key;
@@ -108,6 +109,7 @@ const Collapse = React.createClass({
       const props = {
         key,
         header,
+        subHeader,
         isActive,
         prefixCls,
         openAnimation: this.state.openAnimation,
